@@ -1,6 +1,13 @@
 SPHERO NAV:
 A software library for controlling and tracking Orbotix Sphero
 
+The library was created for my master thesis at the University of Tromso - Norway
+Demo video:
+https://www.youtube.com/watch?v=KlWZrcMtZzI
+
+Thesis:
+http://munin.uit.no/handle/10037/6545
+
 Sphero NAV Dependencies:
 - Python OpenCV 2 (and dependencies for open cv)
     http://docs.opencv.org/trunk/doc/py_tutorials/py_setup/py_table_of_contents_setup/py_table_of_contents_setup.html
