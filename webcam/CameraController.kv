@@ -1,0 +1,72 @@
+#:kivy 1.7.2
+
+<SimpleLabelSlider@BoxLayout>
+    name: ""
+    max: 0
+    min: 1
+    default: 0
+    value: 0
+    disabled: False
+
+    Label:
+        text: root.name
+        size_hint_x: 0.2
+
+    Slider:
+        id: slider
+        value: root.value
+        range: root.min, root.max
+        on_value: root.value = args[1]
+        step: 1
+        size_hint_x: 0.5
+        disabled: root.disabled
+
+    Label:
+        text: str(slider.value)
+        size_hint_x: 0.1
+
+    Button:
+        text: "reset"
+        on_press: slider.value = root.default
+        size_hint_x: 0.2
+
+<SimpleSwitchLabelSlider@BoxLayout>
+    name: ""
+    max: 0
+    min: 1
+    default: 1
+    value: 0
+    activated: True
+
+    SimpleLabelSlider:
+        name: root.name
+        max: root.max
+        min: root.min
+        default: root.default
+        value: root.value
+        on_value: root.value = args[1]
+        size_hint_x: 0.9
+        disabled: root.activated
+
+    Switch:
+        active: root.activated
+        on_active: root.activated = args[1]
+        size_hint_x: 0.2
+
+
+<CameraController>
+    BoxLayout:
+        pos: root.pos
+        size: root.size
+
+        SimpleSwitchLabelSlider:
+            height: "18px"
+
+            name: "Exposure"
+            min: root.exposure_min
+            max: root.exposure_max
+            default: root.exposure_default
+            value: root.exposure
+            on_value: root.exposure = args[1]
+            activated: root.exposure_auto
+            on_activated: root.exposure_auto = args[1]
